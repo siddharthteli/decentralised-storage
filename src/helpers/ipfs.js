@@ -19,9 +19,9 @@ export async function  getStringFromIpfs(cid) {
     for await (const chunk of stream) {
         console.log("Value of chuck+"+chunk);
 
-        data += chunk.toString();
+        data += new TextDecoder().decode(chunk);
       }
-    alert("data"+data);
+    alert("data:--"+data);
 }
 
 
