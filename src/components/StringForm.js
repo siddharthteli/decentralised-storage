@@ -1,7 +1,7 @@
 import React from "react";
-import { addStringToIpfs,getStringFromIpfs } from '../helpers/ipfs'
-import { stringtoNFT,stringFromNFT } from '../helpers/nftStorage'
-
+import { addStringToIpfs, getStringFromIpfs } from '../helpers/ipfs'
+import { stringtoNFT, stringFromNFT } from '../helpers/nftStorage'
+import {stringToWeave} from '../helpers/arweave.ts'
 export default class StringForm extends React.Component {
     labelValue;
     constructor(props) {
@@ -15,19 +15,19 @@ export default class StringForm extends React.Component {
 
     onClick = async () => {
         console.log("Inside onclcick")
-        console.log("Value of state---"+this.props.function);
-        
+        console.log("Value of state---" + this.props.function);
+
         if (this.props.selection === 'NFT Storage') {
 
             //add backend nft call here.
             if (this.props.function === "CAT") {
                 console.log("Inside NFT & CAT ");
 
-               await stringFromNFT(this.state.value);
+                await stringFromNFT(this.state.value);
             }
             else if (this.props.function === "GET") {
                 console.log("Inside NFT & GET ");
-              
+
                 let cid = await stringtoNFT(this.state.value);
                 alert("Your CID--" + cid);
 
@@ -41,13 +41,28 @@ export default class StringForm extends React.Component {
             if (this.props.function === "CAT") {
                 console.log("Inside IPFS & CAT ");
                 await getStringFromIpfs(this.state.value)
-                
+
             }
             else if (this.props.function === "GET") {
                 console.log("Inside IPFS & GET ");
-              
+
                 let cid = await addStringToIpfs(this.state.value);
                 alert("Your CID--" + cid);
+            }
+
+        }
+        else if (this.props.selection === 'AR') {
+            //add backend ipfs call here.
+            if (this.props.function === "CAT") {
+                console.log("Inside AR & CAT ");
+               //will impl.
+
+            }
+            else if (this.props.function === "GET") {
+                console.log("Inside IPFS & GET ");
+
+                await stringToWeave(this.state.value);
+               
             }
 
         }
@@ -59,7 +74,7 @@ export default class StringForm extends React.Component {
             this.labelValue = "Enter CID";
         }
         else if (this.props.function === "GET") {
-   
+
             this.labelValue = "Enter String";
         }
 

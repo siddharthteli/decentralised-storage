@@ -4,17 +4,17 @@ import StringForm from './StringForm.js'
 export default class Selector extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { selected: 'IPFS',function:'GET',label:'Enter String' }
+        this.state = { selected: 'IPFS', function: 'GET', label: 'Enter String' }
 
     }
 
     onUpdate = (e) => {
         this.setState({ selected: e.target.value });
     }
-    onFunctionUpdate =(e) => {
-        
-        this.setState({function:e.target.value});
-        
+    onFunctionUpdate = (e) => {
+
+        this.setState({ function: e.target.value });
+
     }
 
     render() {
@@ -25,6 +25,7 @@ export default class Selector extends React.Component {
                     <select value={this.state.selected} onChange={this.onUpdate}>
                         <option defaultValue>IPFS</option>
                         <option>NFT Storage</option>
+                        <option>AR</option>
 
                     </select>
                 </div>
@@ -36,7 +37,7 @@ export default class Selector extends React.Component {
                     </select>
                 </div>
 
-                <StringForm selection={this.state.selected} function={this.state.function}/>
+                <StringForm selection={this.state.selected} function={this.state.function} />
             </div>
         )
 
