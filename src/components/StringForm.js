@@ -1,6 +1,6 @@
 import React from "react";
 import {addStringToIpfs} from '../helpers/ipfs'
-
+import {stringtoNFT} from '../helpers/nftStorage'
 
 export default class StringForm extends React.Component {
 
@@ -18,6 +18,9 @@ export default class StringForm extends React.Component {
         {
             
             //add backend nft call here.
+            console.log("inside NFT");
+            let cid=await stringtoNFT();
+            alert("Your CID--"+cid);
             
         }
         else if (this.props.selection==='IPFS') 
