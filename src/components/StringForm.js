@@ -3,7 +3,7 @@ import {addStringToIpfs} from '../helpers/ipfs'
 import {stringtoNFT} from '../helpers/nftStorage'
 
 export default class StringForm extends React.Component {
-
+    labelValue;
     constructor(props) {
         super(props)
         this.state={value:''}
@@ -33,10 +33,20 @@ export default class StringForm extends React.Component {
     }
 
     render() {
+        this.labelValue="ENTER STRING";
+        if(this.props.function==="CAT") {
+            console.log("Inside String form VAlue is CAT");
+            this.labelValue="Enter CID";
+        }
+        else if (this.props.function==="GET") {
+            console.log("Inside String form VAlue is GET");
+            this.labelValue="Enter String";
+        }
+      
         console.log("Value of prop:---"+this.props.selection);
         return(
         <div>
-            <label>Enter String:</label>
+            <label>{this.labelValue}</label>
             <input type="text" value={this.state.value} onChange={this.onUpdate}/>
             <button type="submit" onClick={this.onClick}>submit</button>
         </div>
