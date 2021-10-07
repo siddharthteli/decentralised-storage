@@ -19,7 +19,7 @@ export default class StringForm extends React.Component {
             
             //add backend nft call here.
             console.log("inside NFT");
-            let cid=await stringtoNFT();
+            let cid=await stringtoNFT(this.state.value);
             alert("Your CID--"+cid);
             
         }
@@ -27,7 +27,7 @@ export default class StringForm extends React.Component {
         {
             //add backend ipfs call here.
             console.log("Inside IPFS")
-            let cid=await addStringToIpfs("asdas");
+            let cid=await addStringToIpfs(this.state.value);
             alert("Your CID--"+cid);
         }
     }
