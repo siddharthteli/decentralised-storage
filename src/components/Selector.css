@@ -1,0 +1,9 @@
+.container{
+    border: 1px black solid;
+    width: fit-content;
+    height: fit-content;
+    margin:auto;
+    margin-top: 20px;
+    padding: 10px;
+
+}
