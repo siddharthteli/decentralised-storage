@@ -23,7 +23,7 @@ export default class StringForm extends React.Component {
             if (this.props.function === "CAT") {
                 console.log("Inside NFT & CAT ");
 
-               await stringFromNFT();
+               await stringFromNFT(this.state.value);
             }
             else if (this.props.function === "GET") {
                 console.log("Inside NFT & GET ");

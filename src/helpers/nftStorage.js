@@ -6,12 +6,15 @@ const client=new NFTStorage({token:apikey});
 export async function stringtoNFT(data){
     console.log("Value of data NFT--"+data);
     const metadata = await client.storeBlob(new Blob([data]))
-    
+    //bafkreibcx2fea6pmpoj3hhs2jffui6a7i3xsjxsaxpkcwr4asw4o645ho4
       return metadata;
 
 }
 
 export async function stringFromNFT(cid) {
-  let data= client.status(cid);
-  alert("Status"+data);
+  let result= await client.status(cid);
+  let data=await client.check(cid);
+  
+  alert("Status"+JSON.stringify(result));
+  alert("Status"+JSON.stringify(data));
 }
