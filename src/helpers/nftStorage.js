@@ -12,5 +12,6 @@ export async function stringtoNFT(data){
 }
 
 export async function stringFromNFT(cid) {
-  let data= client.token
+  let data= client.status(cid);
+  alert("Status"+data);
 }

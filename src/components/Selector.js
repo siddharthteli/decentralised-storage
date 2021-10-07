@@ -4,7 +4,7 @@ import StringForm from './StringForm.js'
 export default class Selector extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { selected: 'IPFS',function:'add',label:'Enter String' }
+        this.state = { selected: 'IPFS',function:'GET',label:'Enter String' }
 
     }
 
@@ -18,7 +18,7 @@ export default class Selector extends React.Component {
     }
 
     render() {
-        console.log("Value of state:---" + this.state.selected)
+
         return (
             <div className="container">
                 <div className="selection-wrapper">
