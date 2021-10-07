@@ -1,5 +1,5 @@
 import React from "react";
-
+import {addStringToIpfs} from '../helpers/ipfs'
 
 
 export default class StringForm extends React.Component {
@@ -13,14 +13,19 @@ export default class StringForm extends React.Component {
 
     }
 
-    onClick=() => {
+    onClick=async() => {
         if(this.props.selection==='NFT Storage')
         {
+            
             //add backend nft call here.
+            
         }
         else if (this.props.selection==='IPFS') 
         {
             //add backend ipfs call here.
+            console.log("Inside IPFS")
+            let cid=await addStringToIpfs("asdas");
+            alert("Your CID--"+cid);
         }
     }
 
