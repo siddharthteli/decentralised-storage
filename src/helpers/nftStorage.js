@@ -10,3 +10,7 @@ export async function stringtoNFT(data){
       return metadata;
 
 }
+
+export async function stringFromNFT(cid) {
+  let data= client.token
+}
