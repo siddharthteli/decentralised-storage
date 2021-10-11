@@ -3,7 +3,7 @@ import { addStringToIpfs, getStringFromIpfs } from '../helpers/ipfs'
 import { stringtoNFT, stringFromNFT } from '../helpers/nftStorage'
 import {stringToWeave} from '../helpers/arweave.ts'
 export default class StringForm extends React.Component {
-    labelValue;
+    labelValue;uploadType;
     constructor(props) {
         super(props)
         this.state = { value: '' }
@@ -69,6 +69,7 @@ export default class StringForm extends React.Component {
     }
 
     render() {
+        console.log("Value of uploadtype::----"+this.props.uploadType);
         this.labelValue = "ENTER STRING";
         if (this.props.function === "CAT") {
             this.labelValue = "Enter CID";
@@ -78,11 +79,19 @@ export default class StringForm extends React.Component {
             this.labelValue = "Enter String";
         }
 
+        if (this.props.uploadType === "String") {
+            this.uploadType= "text";
+        }
+        else if (this.props.uploadType === "File") {
+
+            this.uploadType = "file";
+        }
+
 
         return (
             <div>
                 <label>{this.labelValue}</label>
-                <input type="text" value={this.state.value} onChange={this.onUpdate} />
+                <input type={this.uploadType} value={this.state.value} onChange={this.onUpdate} />
                 <button type="submit" onClick={this.onClick}>submit</button>
             </div>
         )

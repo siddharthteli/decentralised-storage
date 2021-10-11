@@ -4,7 +4,7 @@ import StringForm from './StringForm.js'
 export default class Selector extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { selected: 'IPFS', function: 'GET', label: 'Enter String' }
+        this.state = { selected: 'IPFS', function: 'GET', label: 'Enter String', uploadType:'String' }
 
     }
 
@@ -15,6 +15,10 @@ export default class Selector extends React.Component {
 
         this.setState({ function: e.target.value });
 
+    }
+    onUpdateType = (e) => {
+        this.setState({uploadType:e.target.value})
+        console.log("Inside onUpdateType....")
     }
 
     render() {
@@ -38,14 +42,14 @@ export default class Selector extends React.Component {
                 </div>
 
                 <div className="selection-wrapper">
-                    <select value={this.state.function} onChange={this.onFunctionUpdate}>
+                    <select value={this.state.uploadType} onChange={this.onUpdateType}>
                         <option defaultValue>String</option>
                         <option>File</option>
 
                     </select>
                 </div>
 
-                <StringForm selection={this.state.selected} function={this.state.function} />
+                <StringForm selection={this.state.selected} function={this.state.function} uploadType={this.state.uploadType}/>
             </div>
         )
 
