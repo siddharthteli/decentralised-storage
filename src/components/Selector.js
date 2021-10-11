@@ -37,6 +37,14 @@ export default class Selector extends React.Component {
                     </select>
                 </div>
 
+                <div className="selection-wrapper">
+                    <select value={this.state.function} onChange={this.onFunctionUpdate}>
+                        <option defaultValue>String</option>
+                        <option>File</option>
+
+                    </select>
+                </div>
+
                 <StringForm selection={this.state.selected} function={this.state.function} />
             </div>
         )
